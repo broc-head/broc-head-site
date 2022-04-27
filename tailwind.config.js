@@ -19,15 +19,16 @@ module.exports = {
         'green': '#0E402D',
         'red': '#B80A31',
       },
-      li: {
-        DEFAULT: 'list-disc'
-      },
       fontFamily: {
         sans: ['Raleway', 'sans-serif', ...fontFamily.sans],
         serif: ['Merriweather', 'serif', ...fontFamily.serif],
         mono: [],
       },
-    },
+      typography: (theme) => ({}),
+    },  
   },
-  plugins: [],
+  variants: {
+    typography: ['dark']
+  },
+  plugins: [require('@tailwindcss/typography')],
 }

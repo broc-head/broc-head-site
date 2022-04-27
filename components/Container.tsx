@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import NextLink from 'next/link';
+import { useTheme } from 'next-themes';
+import Link from 'next/link';
 
 export const siteTitle = 'My Next.js Blog'
 
@@ -14,7 +15,7 @@ function NavItem({ href, text }) {
   const isActive = router.asPath === href;
 
   return (
-    <NextLink href={href}>
+    <Link href={href}>
       <a
         className={`${
           isActive
@@ -25,52 +26,14 @@ function NavItem({ href, text }) {
       >
         <span className="capsize">{text}</span>
       </a>
-    </NextLink>
+    </Link>
   );
 }
 
 const Container = ({ children, ...customMeta }: Props) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
-
-  const handleToggle = ({event}: any) => {
-    setIsDarkTheme(event.target.checked);
-  }
-  const getMediaQueryPreference= () => {
-    const mediaQuery = '(prefers-color-scheme: dark)';
-    const mql = window.matchMedia(mediaQuery);
-    const hasPreference = typeof mql.matches === 'boolean';
-
-    if (hasPreference) {
-      return mql.matches ? 'dark' : 'light';
-    }
-  };
-
-  const storeUserSetPreference= (pref) => {
-    localStorage.setItem('theme', pref);
-  };
-  const getUserSetPreference = () => {
-    return localStorage.getItem('theme');
-  }
-
-  useEffect(() => {
-    const userSetPreference = getUserSetPreference();
-    if (userSetPreference !== null) {
-      setIsDarkTheme(userSetPreference === 'dark');
-    } else {
-      const mediaQueryPreference = getMediaQueryPreference();
-      setIsDarkTheme(mediaQueryPreference === 'dark');
-    }
-  }, []);
-  useEffect(() => {
-    if (isDarkTheme !== undefined) {
-      if (isDarkTheme) {
-        storeUserSetPreference('dark');
-      } else {
-        storeUserSetPreference('light');
-      }
-    }
-  }, [isDarkTheme]);
-
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+  useEffect(() => setMounted(true), [])
   const router = useRouter();
   const meta = {
     title: 'Eric Whitehead - Developer, Writer, Designer.',
@@ -78,7 +41,7 @@ const Container = ({ children, ...customMeta }: Props) => {
     image: '', //need banner
     type: 'website',
     ...customMeta
-  }
+  };
 
   return (
     <div className="bg-gray-50 dark:bg-gray-900">
@@ -113,22 +76,23 @@ const Container = ({ children, ...customMeta }: Props) => {
               <NavItem href="/contact" text="Contact" />
             </div>
             
-            <div className="w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center  hover:ring-2 ring-gray-300  transition-all">
-              <label className="opacity-0">Dark</label>
-              <input 
-                type="checkbox"
-                className='z-500 opacity-0'
-                checked={isDarkTheme}
-                onChange={handleToggle}
-              />
+            <button
+              aria-label='dark mode toggle'
+              type="button"
+              className="w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center hover:ring-2 ring-gray-300 transition-all"
+              onClick={() =>
+                setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+              }
+            >
+              {mounted && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  className="h-6 w-6 text-gray-800 dark:text-gray-200"
+                  className='h-6 w-6 text-gray-900 dark:text-gray-100'
                 >
-                  {isDarkTheme ? (
+                  {resolvedTheme === 'dark' ? (
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -140,12 +104,12 @@ const Container = ({ children, ...customMeta }: Props) => {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
                     />
                   )}
                 </svg>
-            </div>
-              
+              )}
+            </button>
           </nav>
         </div>
 
