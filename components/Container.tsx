@@ -21,7 +21,7 @@ function NavItem({ href, text }) {
           isActive
             ? 'font-semibold text-gray-800 dark:text-gray-200'
             : 'font-normal text-gray-600 dark:text-gray-400'}
-          hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all`
+          hidden md:inline-block p-1 sm:px-3 rounded-sm sm:py-2 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all`
         }
       >
         <span className="capsize">{text}</span>
@@ -65,6 +65,7 @@ const Container = ({ children, ...customMeta }: Props) => {
               <meta property="article:published_time" content={meta.date} />
             )}
         </Head>
+
         <div className='flex flex-col justify-center px-8'>
           <nav className='flex items-center justify-between w-full relative max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-8 sm:pb-16 text-gray-900 bg-gray-50 dark:bg-gray-900 bg-opacity-60 dark:text-gray-100'>
             
@@ -75,41 +76,48 @@ const Container = ({ children, ...customMeta }: Props) => {
               <NavItem href="/blog" text="Blog" />
               <NavItem href="/contact" text="Contact" />
             </div>
-            
-            <button
-              aria-label='dark mode toggle'
-              type="button"
-              className="w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center hover:ring-2 ring-gray-300 transition-all"
-              onClick={() =>
-                setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
-              }
-            >
-              {mounted && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  className='h-6 w-6 text-gray-900 dark:text-gray-100'
-                >
-                  {resolvedTheme === 'dark' ? (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                    />
-                  ) : (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                    />
-                  )}
-                </svg>
-              )}
-            </button>
+            <div className='flex items-center justify-between space-x-7'>  
+              <button
+                aria-label='dark mode toggle'
+                type="button"
+                className="w-8 h-8 bg-gray-50 dark:bg-gray-700 ring-2 ring-gray-900 dark:ring-gray-200 rounded-md flex items-center justify-center shadow-[7px_7px_0_0_rgba(237,174,73)] dark:shadow-[7px_7px_0_0_rgba(183,93,105)] hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]"
+                onClick={() =>
+                  setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+                }
+              >
+                {mounted && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    className='h-6 w-6 text-gray-900 dark:text-gray-100'
+                  >
+                    {resolvedTheme === 'dark' ? (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                      />
+                    ) : (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                      />
+                    )}
+                  </svg>
+                )}
+              </button>
+
+              <button
+                aria-label='mobile menu'
+                type="button"
+                className="md:hidden w-8 h-8 bg-gray-50 dark:bg-gray-700 ring-2 ring-gray-900 dark:ring-gray-200 rounded-md flex items-center justify-center shadow-[7px_7px_0_0_rgba(237,174,73)] dark:shadow-[7px_7px_0_0_rgba(183,93,105)] hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]"
+              ></button>
+            </div>
           </nav>
         </div>
 

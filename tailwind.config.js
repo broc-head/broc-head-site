@@ -9,7 +9,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'yellow': '#E7B57C', //middle yellow red
+        'sunray': '#EDAE49', //sunray yellow
+        'brick': '#D1495B',  //brick red
+        'command': '#2274A5', //star command blue
         'desert': '#DAAE7B', //burlywood
         'purple': '#6A75CC', //violet blue crayola
         'purple-light': '#AAAFD9', //wild blue yonder
@@ -17,7 +19,7 @@ module.exports = {
         'cam': '#C3DECC', //cambridge blue
         'jet': '#34312D',
         'green': '#0E402D',
-        'red': '#B80A31',
+        
       },
       fontFamily: {
         sans: ['Raleway', 'sans-serif', ...fontFamily.sans],

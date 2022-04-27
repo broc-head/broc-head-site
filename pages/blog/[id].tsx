@@ -17,22 +17,15 @@ export default function Post({
     return (
         <Container>
             <Head>
-                
                 <title>{postData.title}</title>
-                
             </Head>
             <div className='pt-6'>
-                
                     <article>
                         <h1 className='text-6xl leading-16 tracking-tighter'>{postData.title}</h1>
-                        
                             <div className='flex items-center color-gray'>
                                 <Date dateString={postData.date} />
                             </div>
-
-                            <div className='text-left list-disc' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-                        
-
+                            <div className='text-left list-disc' dangerouslySetInnerHTML={{ __html: postData.contentHtml }}  />
                     </article>
                 
             </div>
