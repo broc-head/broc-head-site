@@ -9,26 +9,29 @@ export default function MobileMenu() {
   }
 
   return (
-    <>
-      <button
-        className={`${active ? 'float' : 'md:hidden'} flex items-center justify-center w-8 h-8 relative bg-gray-50 dark:bg-gray-600 ring-2 ring-black ring-inset dark:ring-gray-200 rounded-md shadow-[6px_6px_0_0_] shadow-green dark:shadow-hunter hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]`}
+    <> <div className=' md:hidden'> 
+    <button
+        className={`${active? '' : ''} flex items-center justify-center w-8 h-8 relative bg-gray-50 dark:bg-gray-600 ring-2 ring-black ring-inset dark:ring-gray-200 rounded-md shadow-[6px_6px_0_0_] shadow-green dark:shadow-hunter hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]`}
         aria-label="Toggle mobile menu"
         type="button"
         onClick={toggleMenu}
       >
-        {active ? 
-        <CrossIcon data-hide={!active}/>
-        :
-        <MenuIcon data-hide={active}/>
-        }
-      </button>
-      <div className={``}>
-        
+        {!active? (
+        <MenuIcon/>
+        ) : (
+          <CrossIcon/>
+        )}
+    </button>
+    
+    <div className={`${active? 'absolute -left-8 top-20 w-screen min-h-[calc(100% - 5rem)]' : 'hidden'} `}>
+    
+      <div className='flex flex-col'>
+    
         <ul
-          className={`${active ? 'absolute' : 'hidden'} w-2/3 h-screen top-0 right-0 p-16 flex flex-col b-0 opacity-1 bg-gray-100 dark:bg-gray-900`}
+          className={`p-16 space-y-4 items-center opacity-1 bg-gray-100 dark:bg-gray-900`}
         >
           <li
-            className="w-full border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold "
+            className="flex-grow w-full border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold "
             style={{ transitionDelay: '150ms' }}
           >
             <Link href="/">
@@ -36,7 +39,7 @@ export default function MobileMenu() {
             </Link>
           </li>
           <li
-            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold whitespace-nowrap w-full"
+            className="flex-grow border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold whitespace-nowrap w-full"
             style={{ transitionDelay: '175ms' }}
           >
             <Link href="/guestbook">
@@ -44,7 +47,7 @@ export default function MobileMenu() {
             </Link>
           </li>
           <li
-            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold whitespace-nowrap w-full"
+            className="flex border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold whitespace-nowrap w-full"
             style={{ transitionDelay: '200ms' }}
           >
             <Link href="/dashboard">
@@ -52,7 +55,7 @@ export default function MobileMenu() {
             </Link>
           </li>
           <li
-            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold whitespace-nowrap"
+            className="flex border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold whitespace-nowrap"
             style={{ transitionDelay: '250ms' }}
           >
             <Link href="/blog">
@@ -60,14 +63,17 @@ export default function MobileMenu() {
             </Link>
           </li>
           <li
-            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold whitespace-nowrap"
+            className="flex-grow border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold whitespace-nowrap"
             style={{ transitionDelay: '275ms' }}
           >
             <Link href="/snippets">
               <a className="flex w-auto pb-4">Contact</a>
             </Link>
           </li>
-        </ul></div>
+        </ul>
+    </div>
+    </div>
+    </div>
     </>
   );
 }

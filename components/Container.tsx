@@ -120,7 +120,7 @@ const Container = ({ children, ...customMeta }: Props) => {
           </nav>
         </div>
 
-        <main className="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-900">
+        <main className="flex flex-col justify-center top-8 px-8 bg-gray-50 dark:bg-gray-900">
           {children}
         </main>
         
