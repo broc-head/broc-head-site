@@ -1,51 +1,34 @@
 import Link from 'next/link';
-import useDelayedRender from 'use-delayed-render';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function MobileMenu() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
-    isMenuOpen,
-    {
-      enterDelay: 20,
-      exitDelay: 300
-    }
-  );
+  const [active, setActive] = useState(false);
 
   function toggleMenu() {
-    if (isMenuOpen) {
-      setIsMenuOpen(false);
-      document.body.style.overflow = '';
-    } else {
-      setIsMenuOpen(true);
-      document.body.style.overflow = 'hidden';
-    }
+    setActive(!active);
   }
-
-  useEffect(() => {
-    return function cleanup() {
-      document.body.style.overflow = '';
-    };
-  }, []);
 
   return (
     <>
       <button
-        className='visible md:hidden flex items-center justify-center w-8 h-8 relative bg-gray-50 dark:bg-gray-600 ring-2 ring-black ring-inset dark:ring-gray-200 rounded-md shadow-[6px_6px_0_0_] shadow-green dark:shadow-hunter hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]'
+        className={`${active ? 'float' : 'md:hidden'} flex items-center justify-center w-8 h-8 relative bg-gray-50 dark:bg-gray-600 ring-2 ring-black ring-inset dark:ring-gray-200 rounded-md shadow-[6px_6px_0_0_] shadow-green dark:shadow-hunter hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]`}
         aria-label="Toggle mobile menu"
         type="button"
         onClick={toggleMenu}
       >
-          <MenuIcon data-hide={isMenuOpen} />
-    </button>
-    
-    {isMenuMounted && (
+        {active ? 
+        <CrossIcon data-hide={!active}/>
+        :
+        <MenuIcon data-hide={active}/>
+        }
+      </button>
+      <div className={``}>
+        
         <ul
-          className={`flex flex-col absolute bg-gray-100 dark:bg-gray-900 h-screen w-screen m-0 left-0 pt-12
-          ${ isMenuRendered &&  'opacity-1'}`}
+          className={`${active ? 'absolute' : 'hidden'} w-2/3 h-screen top-0 right-0 p-16 flex flex-col b-0 opacity-1 bg-gray-100 dark:bg-gray-900`}
         >
           <li
-            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold "
+            className="w-full border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold "
             style={{ transitionDelay: '150ms' }}
           >
             <Link href="/">
@@ -57,7 +40,7 @@ export default function MobileMenu() {
             style={{ transitionDelay: '175ms' }}
           >
             <Link href="/guestbook">
-              <a className="flex w-auto pb-4">Guestbook</a>
+              <a className="flex w-auto pb-4">About</a>
             </Link>
           </li>
           <li
@@ -65,7 +48,7 @@ export default function MobileMenu() {
             style={{ transitionDelay: '200ms' }}
           >
             <Link href="/dashboard">
-              <a className="flex w-auto pb-4">Dashboard</a>
+              <a className="flex w-auto pb-4">Works</a>
             </Link>
           </li>
           <li
@@ -77,39 +60,14 @@ export default function MobileMenu() {
             </Link>
           </li>
           <li
-            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold whitespace-nowrap -translate-x-8"
+            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold whitespace-nowrap"
             style={{ transitionDelay: '275ms' }}
           >
             <Link href="/snippets">
-              <a className="flex w-auto pb-4">Snippets</a>
+              <a className="flex w-auto pb-4">Contact</a>
             </Link>
           </li>
-          <li
-            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold whitespace-nowrap -translate-x-8"
-            style={{ transitionDelay: '300ms' }}
-          >
-            <Link href="/newsletter">
-              <a className="flex w-auto pb-4">Newsletter</a>
-            </Link>
-          </li>
-          <li
-            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold whitespace-nowrap -translate-x-8"
-            style={{ transitionDelay: '325ms' }}
-          >
-            <Link href="/tweets">
-              <a className="flex w-auto pb-4">Tweets</a>
-            </Link>
-          </li>
-          <li
-            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold whitespace-nowrap -translate-x-8"
-            style={{ transitionDelay: '350ms' }}
-          >
-            <Link href="/uses">
-              <a className="flex w-auto pb-4">Uses</a>
-            </Link>
-          </li>
-        </ul>
-      )}
+        </ul></div>
     </>
   );
 }
