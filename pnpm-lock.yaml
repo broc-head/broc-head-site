@@ -21,6 +21,7 @@ specifiers:
   remark-html: ^15.0.1
   tailwindcss: ^3.0.24
   typescript: 4.6.3
+  use-delayed-render: ^0.0.7
 
 dependencies:
   date-fns: 2.28.0
@@ -33,6 +34,7 @@ dependencies:
   react-dom: 18.0.0_react@18.0.0
   remark: 14.0.2
   remark-html: 15.0.1
+  use-delayed-render: 0.0.7_react@18.0.0
 
 devDependencies:
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.0.24
@@ -2650,6 +2652,14 @@ packages:
     dependencies:
       punycode: 2.1.1
     dev: true
+
+  /use-delayed-render/0.0.7_react@18.0.0:
+    resolution: {integrity: sha512-Lb4Sd4P50CYRQ5k2Y9SRjMDTBG3Ous7TmfCGOzabKZf3ibQwIuyF3M2q6iiGLH+BicXZJumXgJDeHRnAfZM7Gg==}
+    peerDependencies:
+      react: ^16.13.1
+    dependencies:
+      react: 18.0.0
+    dev: false
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=}

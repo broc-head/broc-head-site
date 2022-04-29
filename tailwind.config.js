@@ -9,17 +9,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'yellow': '#FADF63', //Naples yellow
         'sunray': '#EDAE49', //sunray yellow
-        'brick': '#D1495B',  //brick red
-        'command': '#2274A5', //star command blue
-        'desert': '#DAAE7B', //burlywood
-        'purple': '#6A75CC', //violet blue crayola
-        'purple-light': '#AAAFD9', //wild blue yonder
-        'pink': '#C4B1AE',
-        'cam': '#C3DECC', //cambridge blue
-        'jet': '#34312D',
-        'green': '#0E402D',
-        
+        'purple': '#645593', //purple navy
+        'space': '#3A365E', //space purple
+        'green': '#69B578', //medium sea green
+        'hunter': '#3C6651' //hunter green
+
       },
       fontFamily: {
         sans: ['Raleway', 'sans-serif', ...fontFamily.sans],

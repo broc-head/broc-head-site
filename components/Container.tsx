@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
+import MobileMenu from './MobileMenu';
 
 export const siteTitle = 'My Next.js Blog'
 
@@ -21,7 +22,7 @@ function NavItem({ href, text }) {
           isActive
             ? 'font-semibold text-gray-800 dark:text-gray-200'
             : 'font-normal text-gray-600 dark:text-gray-400'}
-          hidden md:inline-block p-1 sm:px-3 rounded-sm sm:py-2 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all`
+          hidden md:inline-block p-2 sm:px-3 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-800 transition-all`
         }
       >
         <span className="capsize">{text}</span>
@@ -78,9 +79,10 @@ const Container = ({ children, ...customMeta }: Props) => {
             </div>
             <div className='flex items-center justify-between space-x-7'>  
               <button
+                className='w-8 h-8 flex items-center justify-center rounded-md ring-2 ring-inset ring-black dark:ring-gray-100 bg-yellow dark:bg-space shadow-[7px_7px_0_0_] shadow-sunray dark:shadow-purple hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] text-gray-900 dark:text-gray-100'
                 aria-label='dark mode toggle'
                 type="button"
-                className="w-8 h-8 bg-gray-50 dark:bg-gray-700 ring-2 ring-gray-900 dark:ring-gray-200 rounded-md flex items-center justify-center shadow-[7px_7px_0_0_rgba(237,174,73)] dark:shadow-[7px_7px_0_0_rgba(183,93,105)] hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]"
+                
                 onClick={() =>
                   setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
                 }
@@ -91,7 +93,7 @@ const Container = ({ children, ...customMeta }: Props) => {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    className='h-6 w-6 text-gray-900 dark:text-gray-100'
+                    className='h-6 w-6'
                   >
                     {resolvedTheme === 'dark' ? (
                       <path
@@ -111,12 +113,9 @@ const Container = ({ children, ...customMeta }: Props) => {
                   </svg>
                 )}
               </button>
-
-              <button
-                aria-label='mobile menu'
-                type="button"
-                className="md:hidden w-8 h-8 bg-gray-50 dark:bg-gray-700 ring-2 ring-gray-900 dark:ring-gray-200 rounded-md flex items-center justify-center shadow-[7px_7px_0_0_rgba(237,174,73)] dark:shadow-[7px_7px_0_0_rgba(183,93,105)] hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]"
-              ></button>
+              
+              <MobileMenu />
+              
             </div>
           </nav>
         </div>
