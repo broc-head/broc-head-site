@@ -11,26 +11,6 @@ type Props = {
   children?: React.ReactNode
 }
 
-function NavItem({ href, text }) {
-  const router = useRouter();
-  const isActive = router.asPath === href;
-
-  return (
-    <Link href={href}>
-      <a
-        className={`${
-          isActive
-            ? 'font-semibold text-gray-800 dark:text-gray-200'
-            : 'font-normal text-gray-600 dark:text-gray-400'}
-          hidden md:inline-block p-2 sm:px-3 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-800 transition-all`
-        }
-      >
-        <span className="capsize">{text}</span>
-      </a>
-    </Link>
-  );
-}
-
 const Container = ({ children, ...customMeta }: Props) => {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
@@ -67,10 +47,9 @@ const Container = ({ children, ...customMeta }: Props) => {
             )}
         </Head>
 
-        <div className='flex flex-col justify-center px-8'>
-          <nav className='flex items-center justify-between w-full relative max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-8 sm:pb-16 text-gray-900 bg-gray-50 dark:bg-gray-900 bg-opacity-60 dark:text-gray-100'>
-            
-            <div className="ml-[-0.60rem]">
+        <div className='flex flex-col justify-center px-12'>
+          <nav className='flex items-center justify-between w-full relative max-w-2xl border-gray-200 dark:border-gray-700 mx-auto py-10 text-gray-900 bg-gray-50 dark:bg-gray-900 bg-opacity-60 dark:text-gray-100'>
+            <div className="space-x-3">
               <NavItem href="/" text="Home" />
               <NavItem href="/about" text="About" />
               <NavItem href="/works" text="Works" />
@@ -79,10 +58,9 @@ const Container = ({ children, ...customMeta }: Props) => {
             </div>
             <div className='flex items-center justify-between space-x-7'>  
               <button
-                className='w-8 h-8 flex items-center justify-center rounded-md ring-2 ring-inset ring-black dark:ring-gray-100 bg-yellow dark:bg-space shadow-[7px_7px_0_0_] shadow-sunray dark:shadow-purple hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] text-gray-900 dark:text-gray-100'
+                className='w-8 h-8 flex items-center justify-center rounded-md ring-2 ring-inset ring-black dark:ring-gray-100 bg-yellow dark:bg-space shadow-[6px_6px_0_0_] shadow-sunray dark:shadow-purple hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] text-gray-900 dark:text-gray-100'
                 aria-label='dark mode toggle'
                 type="button"
-                
                 onClick={() =>
                   setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
                 }
@@ -129,3 +107,23 @@ const Container = ({ children, ...customMeta }: Props) => {
 }
 
 export default Container
+
+function NavItem({ href, text }) {
+  const router = useRouter();
+  const isActive = router.asPath === href;
+
+  return (
+    <Link href={href}>
+      <a
+        className={`${
+          isActive
+            ? 'font-semibold text-gray-800 dark:text-gray-200'
+            : 'font-normal text-gray-600 dark:text-gray-400'}
+          hidden md:inline-block hover:bg-orange-200 dark:hover:bg-orange-800 transition-all px-1`
+        }
+      >
+        <span className="capsize">{text}</span>
+      </a>
+    </Link>
+  );
+}

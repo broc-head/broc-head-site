@@ -9,71 +9,63 @@ export default function MobileMenu() {
   }
 
   return (
-    <> <div className=' md:hidden'> 
-    <button
-        className={`${active? '' : ''} flex items-center justify-center w-8 h-8 relative bg-gray-50 dark:bg-gray-600 ring-2 ring-black ring-inset dark:ring-gray-200 rounded-md shadow-[6px_6px_0_0_] shadow-green dark:shadow-hunter hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]`}
-        aria-label="Toggle mobile menu"
-        type="button"
-        onClick={toggleMenu}
-      >
-        {!active? (
-        <MenuIcon/>
-        ) : (
-          <CrossIcon/>
-        )}
-    </button>
-    
-    <div className={`${active? 'absolute -left-8 top-20 w-screen min-h-[calc(100% - 5rem)]' : 'hidden'} `}>
-    
-      <div className='flex flex-col'>
-    
-        <ul
-          className={`p-16 space-y-4 items-center opacity-1 bg-gray-100 dark:bg-gray-900`}
+    <> 
+      <div className=' md:hidden'> 
+        <button
+          className='flex items-center justify-center w-8 h-8 relative bg-gray-50 dark:bg-gray-600 ring-2 ring-black ring-inset dark:ring-gray-200 rounded-md shadow-[6px_6px_0_0_] shadow-green dark:shadow-hunter hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]'
+          aria-label="Toggle mobile menu"
+          type="button"
+          onClick={toggleMenu}
         >
-          <li
-            className="flex-grow w-full border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold "
-            style={{ transitionDelay: '150ms' }}
-          >
-            <Link href="/">
-              <a className="flex w-auto pb-4">Home</a>
-            </Link>
-          </li>
-          <li
-            className="flex-grow border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold whitespace-nowrap w-full"
-            style={{ transitionDelay: '175ms' }}
-          >
-            <Link href="/guestbook">
-              <a className="flex w-auto pb-4">About</a>
-            </Link>
-          </li>
-          <li
-            className="flex border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold whitespace-nowrap w-full"
-            style={{ transitionDelay: '200ms' }}
-          >
-            <Link href="/dashboard">
-              <a className="flex w-auto pb-4">Works</a>
-            </Link>
-          </li>
-          <li
-            className="flex border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold whitespace-nowrap"
-            style={{ transitionDelay: '250ms' }}
-          >
-            <Link href="/blog">
-              <a className="flex w-auto pb-4">Blog</a>
-            </Link>
-          </li>
-          <li
-            className="flex-grow border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold whitespace-nowrap"
-            style={{ transitionDelay: '275ms' }}
-          >
-            <Link href="/snippets">
-              <a className="flex w-auto pb-4">Contact</a>
-            </Link>
-          </li>
-        </ul>
-    </div>
-    </div>
-    </div>
+          {!active? (
+            <MenuIcon/>
+          ) : (
+            <CrossIcon/>
+          )}
+        </button>
+        
+        <div className={`${active? 'absolute -left-12 top-20 w-screen min-h-[calc(100% - 5rem)]' : 'hidden'} `}>
+          <div className='flex flex-col'>
+            <ul className='px-20 py-8 space-y-8 items-center bg-gray-50 dark:bg-gray-900'>
+              <li
+                className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
+              >
+                <Link href="/">
+                  <a className='flex w-auto pb-4 hover:bg-orange-200 dark:hover:bg-orange-800'>Home</a>
+                </Link>
+              </li>
+              <li
+                className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
+              >
+                <Link href="/about">
+                  <a className="flex w-auto pb-4">About</a>
+                </Link>
+              </li>
+              <li
+                className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
+              >
+                <Link href="/works">
+                  <a className="flex w-auto pb-4">Works</a>
+                </Link>
+              </li>
+              <li
+                className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
+              >
+                <Link href="/blog">
+                  <a className="flex w-auto pb-4">Blog</a>
+                </Link>
+              </li>
+              <li
+                className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
+              >
+                <Link href="/contact">
+                  <a className="flex w-auto pb-4">Contact</a>
+                </Link>
+              </li>
+            </ul>
+        </div>
+        </div>
+      </div>
     </>
   );
 }
