@@ -5,14 +5,20 @@ export default function MobileMenu() {
   const [active, setActive] = useState(false);
 
   function toggleMenu() {
-    setActive(!active);
+    if (!active) {
+      setActive(!active);
+      document.body.style.overflow = 'hidden';
+    } else {
+      setActive(!active);
+      document.body.style.overflow = '';
+    }
   }
 
   return (
     <> 
       <div className=' md:hidden'> 
         <button
-          className='flex items-center justify-center w-8 h-8 relative bg-gray-50 dark:bg-gray-600 ring-2 ring-black ring-inset dark:ring-gray-200 rounded-md shadow-[6px_6px_0_0_] shadow-green dark:shadow-hunter hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]'
+          className={`flex items-center justify-center w-8 h-8 relative bg-gray-50 dark:bg-gray-600 ring-2 ring-black ring-inset dark:ring-gray-200 rounded-md shadow-[6px_6px_0_0_] shadow-seaweed hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]`}
           aria-label="Toggle mobile menu"
           type="button"
           onClick={toggleMenu}
@@ -24,42 +30,42 @@ export default function MobileMenu() {
           )}
         </button>
         
-        <div className={`${active? 'absolute -left-12 top-20 w-screen min-h-[calc(100% - 5rem)]' : 'hidden'} `}>
+        <div className={`${active? 'absolute -left-12 top-20 bottom-0 w-screen h-[92vh] overflow-y-auto bg-gray-50 dark:bg-gray-900' : 'hidden'} `}>
           <div className='flex flex-col'>
-            <ul className='px-20 py-8 space-y-8 items-center bg-gray-50 dark:bg-gray-900'>
+            <ul className='min-h-full px-20 py-8 space-y-8 items-center '>
               <li
-                className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
+                className="leading-8 border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
               >
                 <Link href="/">
-                  <a className='flex w-auto pb-4 hover:bg-orange-200 dark:hover:bg-orange-800'>Home</a>
+                  <a className='flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800'>Home</a>
                 </Link>
               </li>
               <li
-                className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
+                className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold "
               >
                 <Link href="/about">
-                  <a className="flex w-auto pb-4">About</a>
+                  <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">About</a>
                 </Link>
               </li>
               <li
                 className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
               >
                 <Link href="/works">
-                  <a className="flex w-auto pb-4">Works</a>
+                  <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Works</a>
                 </Link>
               </li>
               <li
                 className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
               >
                 <Link href="/blog">
-                  <a className="flex w-auto pb-4">Blog</a>
+                  <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Blog</a>
                 </Link>
               </li>
               <li
                 className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
               >
                 <Link href="/contact">
-                  <a className="flex w-auto pb-4">Contact</a>
+                  <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Contact</a>
                 </Link>
               </li>
             </ul>
