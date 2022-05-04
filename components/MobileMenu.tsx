@@ -37,7 +37,7 @@ export default function MobileMenu() {
           )}
         </button>
         
-        <nav className={`absolute -left-12 top-20 bottom-0 w-screen h-[92vh] bg-gray-50 dark:bg-gray-900 overflow-y-auto transform ${active? "-translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out`}>
+        <nav className={`absolute z-50 -left-12 top-20 bottom-0 pb-20 w-screen h-[92vh] bg-gray-50 dark:bg-gray-900 overflow-y-auto transform ${active? "-translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out`}>
           <div className='flex flex-col'>
             <ul className='min-h-full px-20 py-8 space-y-8 items-center '>
               <li

@@ -8,48 +8,32 @@ import { NowPlayingSong } from '../lib/types';
 function AnimatedBars() {
   useEffect(() => {
     animate(
-      '#bar1',
+      '#left',
       {
         transform: [
           'scaleY(1.0) translateY(0rem)',
-          'scaleY(1.5) translateY(-0.082rem)',
+          'scaleY(1.0) translateY(0.2rem)',
           'scaleY(1.0) translateY(0rem)'
         ]
       },
       {
-        duration: 1.0,
+        duration: 0.75,
         repeat: Infinity,
         easing: ['ease-in-out']
       }
     );
     animate(
-      '#bar2',
-      {
-        transform: [
-          'scaleY(1.0) translateY(0rem)',
-          'scaleY(3) translateY(-0.083rem)',
-          'scaleY(1.0) translateY(0rem)'
-        ]
-      },
-      {
-        delay: 0.2,
-        duration: 1.5,
-        repeat: Infinity,
-        easing: ['ease-in-out']
-      }
-    );
-    animate(
-      '#bar3',
+      '#right',
       {
         transform: [
           'scaleY(1.0)  translateY(0rem)',
-          'scaleY(0.5) translateY(0.37rem)',
+          'scaleY(1.0) translateY(0.2rem)',
           'scaleY(1.0)  translateY(0rem)'
         ]
       },
       {
-        delay: 0.3,
-        duration: 1.5,
+        delay: 0.25,
+        duration: 1.0,
         repeat: Infinity,
         easing: ['ease-in-out']
       }
@@ -57,19 +41,53 @@ function AnimatedBars() {
   }, []);
 
   return (
-    <div className="w-auto flex items-end overflow-hidden">
+    <div className="w-auto flex opacity-90 overflow-hidden">
       <span
-        id="bar1"
-        className="w-1 mr-[3px] h-2 bg-gray-300 dark:bg-gray-500 opacity-75 "
-      />
-      <span
-        id="bar2"
-        className="w-1 mr-[3px] h-1 bg-gray-300 dark:bg-gray-500"
-      />
-      <span
-        id="bar3"
-        className="w-1 h-3 bg-gray-300 dark:bg-gray-500 opacity-80"
-      />
+        id="left"
+        className="flex"
+      >
+        <svg
+          className="h-5 w-5 text-gray-900 dark:text-gray-50" 
+          width="36" 
+          height="36" 
+          viewBox="0 0 700 700" 
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+        <path d="m122.5 122.5v52.5c0 9.6641 7.8359 17.5 17.5 17.5s17.5-7.8359 17.5-17.5v-52.5c0-9.6641-7.8359-17.5-17.5-17.5s-17.5 7.8359-17.5 17.5zm17.5-52.5c28.996 0 52.5 23.504 52.5 52.5v52.5c0 28.996-23.504 52.5-52.5 52.5s-35-23.504-35-52.5v-52.5c0-28.996 6.0039-52.5 35-52.5z"/>
+        <path d="m210 52.5c-48.324 0-87.5 39.176-87.5 87.5v17.5c0 48.324 39.176 87.5 87.5 87.5s87.5-39.176 87.5-87.5v-17.5c0-48.324-39.176-87.5-87.5-87.5zm0-35c67.656 0 122.5 54.844 122.5 122.5v332.5c0 19.328-15.672 35-35 35h-35c-19.328 0-35-15.672-35-35l0.019531-193.74c-5.7227 0.81641-11.57 1.2422-17.52 1.2422-67.656 0-122.5-54.844-122.5-122.5v-17.5c0-67.656 54.844-122.5 122.5-122.5zm52.512 250.71-0.011719 204.29h35l0.027344-229.3c-10.051 10.262-21.891 18.766-35.016 25.004z"/>
+        <path d="m253.75 446.25c-9.6641 0-17.5-7.8359-17.5-17.5s7.8359-17.5 17.5-17.5h52.5c9.6641 0 17.5 7.8359 17.5 17.5s-7.8359 17.5-17.5 17.5z"/>
+        
+      </g>
+        </svg>
+      </span>
+
+      <span id='right' className='flex -ml-2 -mr-3'
+      > 
+      <svg 
+        className="h-5 w-5 text-gray-900 dark:text-gray-50" 
+        width="36" 
+        height="36" 
+        viewBox="0 0 700 700" 
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g>
+            <path d="m140 22.5c67.656 0 122.5 54.844 122.5 122.5v17.5c0 67.656-54.844 122.5-122.5 122.5-5.9414 0-11.785-0.42188-17.5-1.2422v193.74c0 19.328-15.672 35-35 35h-35c-19.328 0-35-15.672-35-35v-332.5c0-67.656 54.844-122.5 122.5-122.5zm0 35c-48.324 0-87.5 39.176-87.5 87.5v17.5l0.007812 85.738-0.019531-0.015625 0.011719 229.28h35l-0.003906-245c14.625 10.984 32.805 17.496 52.504 17.496 48.324 0 87.5-39.176 87.5-87.5v-17.5c0-48.324-39.176-87.5-87.5-87.5z"/>
+            <path d="m43.75 446.25c-9.6641 0-17.5-7.8359-17.5-17.5s7.8359-17.5 17.5-17.5h52.5c9.6641 0 17.5 7.8359 17.5 17.5s-7.8359 17.5-17.5 17.5z"/>
+          </g>
+      
+      </svg>
+      </span>
     </div>
   );
 }
@@ -80,7 +98,7 @@ export default function NowPlaying() {
   return (
     <div className="flex flex-row-reverse items-center sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full">
       {data?.songUrl ? (
-        <div className='overflow-hidden'>
+        <div className=''>
         <AnimatedBars />
         </div>
       ) : (
