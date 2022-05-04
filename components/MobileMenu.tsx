@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function MobileMenu() {
   const [active, setActive] = useState(false);
@@ -8,15 +8,22 @@ export default function MobileMenu() {
     if (!active) {
       setActive(!active);
       document.body.style.overflow = 'hidden';
+      
     } else {
       setActive(!active);
       document.body.style.overflow = '';
     }
   }
 
+  useEffect(() => {
+    return function cleanup() {
+      document.body.style.overflow = '';
+    };
+  }, []);
+
   return (
     <> 
-      <div className=' md:hidden'> 
+      <div className={`md:hidden`}> 
         <button
           className={`flex items-center justify-center w-8 h-8 relative bg-gray-50 dark:bg-gray-600 ring-2 ring-black ring-inset dark:ring-gray-200 rounded-md shadow-[6px_6px_0_0_] shadow-seaweed hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]`}
           aria-label="Toggle mobile menu"
@@ -30,14 +37,14 @@ export default function MobileMenu() {
           )}
         </button>
         
-        <div className={`${active? 'absolute -left-12 top-20 bottom-0 w-screen h-[92vh] overflow-y-auto bg-gray-50 dark:bg-gray-900' : 'hidden'} `}>
+        <nav className={`absolute -left-12 top-20 bottom-0 w-screen h-[92vh] bg-gray-50 dark:bg-gray-900 overflow-y-auto transform ${active? "-translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out`}>
           <div className='flex flex-col'>
             <ul className='min-h-full px-20 py-8 space-y-8 items-center '>
               <li
                 className="leading-8 border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
               >
                 <Link href="/">
-                  <a className='flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800'>Home</a>
+                  <a className='flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800' onClick={() => setTimeout(() => {toggleMenu}, 100)}>Home</a>
                 </Link>
               </li>
               <li
@@ -70,7 +77,7 @@ export default function MobileMenu() {
               </li>
             </ul>
         </div>
-        </div>
+        </nav>
       </div>
     </>
   );

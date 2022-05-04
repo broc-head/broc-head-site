@@ -15,7 +15,6 @@ const Container = ({ children, ...customMeta }: Props) => {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
   useEffect(() => setMounted(true), [])
-  const router = useRouter();
   const meta = {
     title: 'Eric Whitehead - Developer, Writer, Designer.',
     description: 'Front-end developer, blogger, food enthusiast, artist.',

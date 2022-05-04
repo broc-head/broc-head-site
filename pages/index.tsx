@@ -4,6 +4,7 @@ import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../lib/date';
 import { GetStaticProps } from 'next';
+import Footer from '../components/Footer';
 
 
 const Index = ({ allPostsData }: {
@@ -20,26 +21,19 @@ const Index = ({ allPostsData }: {
           <title>{siteTitle}</title>
         </Head>
         <div className='flex flex-col justify-center items-start max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pb-16"'>
-          <section className=''>
-            <div className='text-6xl md:text-8xl font-bold underline'>
+          <section className='mb-8'>
+            <div className='text-6xl mb-4 md:text-8xl font-bold underline'>
               <h1 className='mb-4'>
                 Eric Whitehead
               </h1>
             </div>
             
-            <p>Hi, I'm Eric</p>
-            <p>
-              I'm looking for my first job in web development.{' '}
-              <a href="https://www.linkedin.com/in/eric-j-whitehead/">Hire me</a>.
-              Next.js has two forms of pre-rendering: Static Generation and Server-side Rendering. The difference is in when it generates the HTML for a page.
-Static Generation is the pre-rendering method that generates the HTML at build time. The pre-rendered HTML is then reused on each request.
-Server-side Rendering is the pre-rendering method that generates the HTML on each request.
-Importantly, Next.js lets you choose which pre-rendering form to use for each page. You can create a "hybrid" Next.js app by using Static Generation for most pages and using Server-side Rendering for others.
-            </p>
+            <p>Hi, I'm Eric, currently a grocer, looking to join a web development team, for what would be my first job in the dev space.</p>
+            
           </section>
 
           <section className=''>
-            <h2 className='text-lg'>Blog</h2>
+            <h2 className='text-lg'>Blog Posts</h2>
             <ul className='list-none'>
               {allPostsData.map(({ id, date, title }) => (
                 <li className='mb-5' key={id}>
@@ -55,6 +49,7 @@ Importantly, Next.js lets you choose which pre-rendering form to use for each pa
             </ul>
           </section>
         </div>
+        <Footer />
       </Container>
     </div>
   )
@@ -63,7 +58,7 @@ Importantly, Next.js lets you choose which pre-rendering form to use for each pa
 export default Index
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData()
+  const allPostsData = getSortedPostsData();
   return {
     props: {
       allPostsData

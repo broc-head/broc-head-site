@@ -11,14 +11,17 @@ specifiers:
   eslint-config-next: 12.1.5
   eslint-config-prettier: ^8.5.0
   gray-matter: ^4.0.3
+  motion: ^10.8.1
   next: 12.1.5
   next-themes: ^0.1.1
   postcss: ^8.4.12
   prettier: ^2.6.2
+  querystring: ^0.2.1
   react: 18.0.0
   react-dom: 18.0.0
   remark: ^14.0.2
   remark-html: ^15.0.1
+  swr: ^1.3.0
   tailwindcss: ^3.0.24
   typescript: 4.6.3
 
@@ -26,13 +29,16 @@ dependencies:
   date-fns: 2.28.0
   eslint-config-prettier: 8.5.0_eslint@8.13.0
   gray-matter: 4.0.3
+  motion: 10.8.1_zpnidt7m3osuk7shl3s4oenomq
   next: 12.1.5_zpnidt7m3osuk7shl3s4oenomq
   next-themes: 0.1.1_dtzmyspcyj3erncazrhasijzmy
   prettier: 2.6.2
+  querystring: 0.2.1
   react: 18.0.0
   react-dom: 18.0.0_react@18.0.0
   remark: 14.0.2
   remark-html: 15.0.1
+  swr: 1.3.0_react@18.0.0
 
 devDependencies:
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.0.24
@@ -94,6 +100,85 @@ packages:
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
+
+  /@motionone/animation/10.8.0:
+    resolution: {integrity: sha512-dcI9xPwmBAtzxK8+kD3QCiR3uqsmDvsa1z3e3yjoz8EkJgQM409yuSGmhiidEdDSlMDFVu1GfODrElRc5qguhQ==}
+    dependencies:
+      '@motionone/easing': 10.8.0
+      '@motionone/types': 10.8.0
+      '@motionone/utils': 10.8.0
+      tslib: 2.4.0
+    dev: false
+
+  /@motionone/dom/10.8.1:
+    resolution: {integrity: sha512-/y92htpEk7GonxM1NrxtYGnV0Q3WmUrCh9yp9mHNrtthBa9jE69LvWrkX0Nazv5VHOfyKudPm7LQUd5q3FpayQ==}
+    dependencies:
+      '@motionone/animation': 10.8.0
+      '@motionone/generators': 10.8.0
+      '@motionone/types': 10.8.0
+      '@motionone/utils': 10.8.0
+      hey-listen: 1.0.8
+      tslib: 2.4.0
+    dev: false
+
+  /@motionone/easing/10.8.0:
+    resolution: {integrity: sha512-7yvPPMKphWM2RL5TyXFCkbQJENAS6hrEJlj3pKTs9JPiwifSI8UQywQGExBenLdB8RVJoY+h5OqupehS0wKDHw==}
+    dependencies:
+      '@motionone/utils': 10.8.0
+      tslib: 2.4.0
+    dev: false
+
+  /@motionone/generators/10.8.0:
+    resolution: {integrity: sha512-8zds1zikM1cwaXJoiBSPjUy8NJ0JyGl+tHgail44p5MmaK+e2IhZVzyaCrvPlZi7tlAvzoURx5W5lFh6YI6aTQ==}
+    dependencies:
+      '@motionone/types': 10.8.0
+      '@motionone/utils': 10.8.0
+      tslib: 2.4.0
+    dev: false
+
+  /@motionone/react/10.8.1_zpnidt7m3osuk7shl3s4oenomq:
+    resolution: {integrity: sha512-SaVGncC2Vyv0WNSmT4Rs4Oo51S4ii7PXPVxqk7QR8Jv+XTvytJ2z8IBrfzkP8usPItqvNRaztQ+r/P+cHcssOA==}
+    peerDependencies:
+      react: ^17.0.2
+      react-dom: ^17.0.2
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      '@motionone/dom': 10.8.1
+      hey-listen: 1.0.8
+      react: 18.0.0
+      react-dom: 18.0.0_react@18.0.0
+      tslib: 2.4.0
+    dev: false
+
+  /@motionone/svelte/10.8.1:
+    resolution: {integrity: sha512-UC76pQaYaxwsPLgVVjZUUdMrwgc2TyqvYeQDhOoVGTJdwDoNQWoonL7d49yRDmwr1WJxVGKnVf0IjAeSSWlwrQ==}
+    dependencies:
+      '@motionone/dom': 10.8.1
+      tslib: 2.4.0
+    dev: false
+
+  /@motionone/types/10.8.0:
+    resolution: {integrity: sha512-O19S5+3ksCjmt417fypfhj9ZK33pOA4lUdD3iHuWOxRCRk56zJXr8Hftr8dGzr0kmaxPAoX3oCoVc3sEl7W02w==}
+    dev: false
+
+  /@motionone/utils/10.8.0:
+    resolution: {integrity: sha512-uBn+G0NwBaSRMnq++F/fIKoxOhd+WWM7s36WaRC4gubg2K6HqSsgQ61JRmfxYMk5jpihMNFGfWLaEts3mCS6Jw==}
+    dependencies:
+      '@motionone/types': 10.8.0
+      hey-listen: 1.0.8
+      tslib: 2.4.0
+    dev: false
+
+  /@motionone/vue/10.8.1:
+    resolution: {integrity: sha512-uwamEQHB1+bVoqa5qya81WNKflAN/UT/1GeVA739oLSCM4b6W0Yt76zeH+9R/9NH9/A7AHeoKZlmF17R5kGimQ==}
+    dependencies:
+      '@motionone/dom': 10.8.1
+      tslib: 2.4.0
+    dev: false
 
   /@next/env/12.1.5:
     resolution: {integrity: sha512-+34yUJslfJi7Lyx6ELuN8nWcOzi27izfYnZIC1Dqv7kmmfiBVxgzR3BXhlvEMTKC2IRJhXVs2FkMY+buQe3k7Q==}
@@ -1332,6 +1417,10 @@ packages:
     resolution: {integrity: sha512-Pkw+xBHuV6xFeJprJe2BBEoDV+AvQySaz3pPDRUs5PNZEMQjpXJJueqrpcHIXxnWTcAGi/UOCgVShlkY6kLoqg==}
     dev: false
 
+  /hey-listen/1.0.8:
+    resolution: {integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==}
+    dev: false
+
   /html-void-elements/2.0.1:
     resolution: {integrity: sha512-0quDb7s97CfemeJAnW9wC0hw78MtW7NU3hqtCD75g2vFlDLt36llsYD7uB7SUzojLMP24N5IatXf7ylGXiGG9A==}
     dev: false
@@ -1867,6 +1956,19 @@ packages:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
     dev: true
 
+  /motion/10.8.1_zpnidt7m3osuk7shl3s4oenomq:
+    resolution: {integrity: sha512-rtFxMnMZ+HEGjV7cHTf3bV56hOu8VvOy3Jx38dCnk/P/LNZh1jExVsLeSaIaAI/G6qfqELFpfbXwJ/WeY5ZFbQ==}
+    dependencies:
+      '@motionone/animation': 10.8.0
+      '@motionone/dom': 10.8.1
+      '@motionone/react': 10.8.1_zpnidt7m3osuk7shl3s4oenomq
+      '@motionone/svelte': 10.8.1
+      '@motionone/vue': 10.8.1
+    transitivePeerDependencies:
+      - react
+      - react-dom
+    dev: false
+
   /mri/1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
     engines: {node: '>=4'}
@@ -2194,6 +2296,12 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /querystring/0.2.1:
+    resolution: {integrity: sha512-wkvS7mL/JMugcup3/rMitHmd9ecIGd2lhFhK9N3UUQ450h66d1r3Y9nvXzQAW1Lq+wyx61k/1pfKS5KuKiyEbg==}
+    engines: {node: '>=0.4.x'}
+    deprecated: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
+    dev: false
+
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
@@ -2482,6 +2590,14 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
+  /swr/1.3.0_react@18.0.0:
+    resolution: {integrity: sha512-dkghQrOl2ORX9HYrMDtPa7LTVHJjCTeZoB1dqTbnnEDlSvN8JEKpYIYurDfvbQFUUS8Cg8PceFVZNkW0KNNYPw==}
+    peerDependencies:
+      react: ^16.11.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.0.0
+    dev: false
+
   /tailwindcss/3.0.24:
     resolution: {integrity: sha512-H3uMmZNWzG6aqmg9q07ZIRNIawoiEcNFKDfL+YzOPuPsXuDXxJxB9icqzLgdzKNwjG3SAro2h9SYav8ewXNgig==}
     engines: {node: '>=12.13.0'}
@@ -2539,6 +2655,10 @@ packages:
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
+
+  /tslib/2.4.0:
+    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
+    dev: false
 
   /tsutils/3.21.0_typescript@4.6.3:
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
