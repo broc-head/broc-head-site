@@ -19,7 +19,7 @@ const Index = ({ allPostsData }: {
         <Head>
           <title>{siteTitle}</title>
         </Head>
-        <div className='flex flex-col justify-center items-start max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pb-16"'>
+        <div className='flex flex-col items-start max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pb-16"'>
           <section className='mb-8'>
             <div className='text-6xl mb-4 md:text-8xl font-bold underline'>
               <h1 className='mb-4'>
@@ -33,7 +33,7 @@ const Index = ({ allPostsData }: {
 
           <section className=''>
             <h2 className='text-lg'>Blog Posts</h2>
-            <ul className='list-none'>
+            <ul className=''>
               {allPostsData.map(({ id, date, title }) => (
                 <li className='mb-5' key={id}>
                   <Link href={'/blog/'+id}>

@@ -47,7 +47,7 @@ function AnimatedBars() {
         className="flex"
       >
         <svg
-          className="h-5 w-5 text-gray-900 dark:text-gray-50" 
+          className="h-5 w-5 text-gray-700 dark:text-gray-400" 
           width="36" 
           height="36" 
           viewBox="0 0 700 700" 
@@ -70,7 +70,7 @@ function AnimatedBars() {
       <span id='right' className='flex -ml-2 -mr-3'
       > 
       <svg 
-        className="h-5 w-5 text-gray-900 dark:text-gray-50" 
+        className="h-5 w-5 text-gray-700 dark:text-gray-400" 
         width="36" 
         height="36" 
         viewBox="0 0 700 700" 
@@ -97,7 +97,7 @@ export default function NowPlaying() {
   const history = LastPlayed();
 
   return (
-    <div className="flex flex-row-reverse sm:flex-row items-center mb-8 space-x-0 sm:space-x-2 text-sm w-full">
+    <div className="flex flex-row-reverse sm:flex-row items-center mt-8 space-x-0 sm:space-x-2 text-sm w-full text-gray-700 dark:text-gray-400">
       <div className='pt-4 px-1'>
       {data?.songUrl ? (
         
@@ -112,18 +112,18 @@ export default function NowPlaying() {
         </svg>
       )}
       </div>
-       <div className='flex flex-col w-full'>
-      <p className='px-0.5 italic text-xs'>
+       <div className='flex flex-col w-full '>
+      <p className='px-0.5 mb-1 italic text-xs'>
               {data?.songUrl ? (
                 'Listening'
               ) : (
                   'Recently played'
               )} on <a href='https://www.spotify.com' className='underline'>Spotify:</a>
             </p>
-      <div className="inline-flex flex-col sm:flex-row w-full max-w-full truncate">
+      <div className="inline-flex flex-row flex-wrap w-full max-w-full truncate">
          
             <a
-              className="capsize text-gray-800 dark:text-gray-200 font-medium  max-w-max truncate"
+              className="text-gray-800 dark:text-gray-200 font-medium max-w-max truncate"
               href={data?.songUrl ?? history?.songUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -131,10 +131,10 @@ export default function NowPlaying() {
               {data?.title ?? history?.title}
             </a>
             
-          <span className="capsize mx-2 text-gray-500 dark:text-gray-300 hidden sm:block">
+          <span className='mx-1 px-1'>
             {' – '}
           </span>
-          <p className="capsize text-gray-500 dark:text-gray-300 max-w-max truncate">
+          <p className="max-w-max truncate">
             {data?.artist ?? history?.artist}
           </p>
         </div>

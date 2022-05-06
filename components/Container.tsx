@@ -6,6 +6,8 @@ import Link from 'next/link';
 import MobileMenu from './MobileMenu';
 import Footer from './Footer';
 
+
+
 export const siteTitle = 'My Next.js Blog'
 
 type Props = {
@@ -98,7 +100,7 @@ const Container = ({ children, ...customMeta }: Props) => {
           </nav>
         </div>
 
-        <main className="flex flex-col justify-center top-8 px-8 bg-gray-50 dark:bg-gray-900 mb-0">
+        <main className="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-900 mb-auto">
           {children}
           <Footer />
         </main>
