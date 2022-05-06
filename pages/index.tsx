@@ -49,7 +49,6 @@ const Index = ({ allPostsData }: {
             </ul>
           </section>
         </div>
-        <Footer />
       </Container>
     </div>
   )

@@ -1,18 +1,26 @@
 export type Song = {
-    songUrl: string;
-    artist: string;
-    title: string;
-  };
+  songUrl: string;
+  title: string;
+  artist: string;
+};
   
-  export type NowPlayingSong = {
-    album: string;
-    albumImageUrl: string;
-    artist: string;
-    isPlaying: boolean;
-    songUrl: string;
-    title: string;
-  };
+export type NowPlayingSong = {
+  isPlaying: boolean;
+  songUrl: string;
+  title: string;
+  artist: string;
+  album: string;
+  albumImageUrl: string;
+};
+
+export type LastPlayedSong = {
+  songUrl: string;
+  title: string;
+  artist: string;
+  album: string;
+  albumImageUrl: string;
+};
   
-  export type TopTracks = {
-    tracks: Song[];
-  };
+export type TopTracks = {
+  tracks: Song[];
+};

@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { animate } from 'motion';
 
 import fetcher from '../lib/fetcher';
-import { NowPlayingSong } from '../lib/types';
+import { NowPlayingSong, LastPlayedSong } from '../lib/types';
 
 function AnimatedBars() {
   useEffect(() => {
@@ -94,13 +94,15 @@ function AnimatedBars() {
 
 export default function NowPlaying() {
   const { data } = useSWR<NowPlayingSong>('/api/now-playing', fetcher);
+  const history = LastPlayed();
 
   return (
-    <div className="flex flex-row-reverse items-center sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full">
+    <div className="flex flex-row-reverse sm:flex-row items-center mb-8 space-x-0 sm:space-x-2 text-sm w-full">
+      <div className='pt-4 px-1'>
       {data?.songUrl ? (
-        <div className=''>
-        <AnimatedBars />
-        </div>
+        
+          <AnimatedBars />
+        
       ) : (
         <svg className="h-4 w-4 ml-auto mt-[-2px]" viewBox="0 0 168 168">
           <path
@@ -109,28 +111,39 @@ export default function NowPlaying() {
           />
         </svg>
       )}
+      </div>
+       <div className='flex flex-col w-full'>
+      <p className='px-0.5 italic text-xs'>
+              {data?.songUrl ? (
+                'Listening'
+              ) : (
+                  'Recently played'
+              )} on <a href='https://www.spotify.com' className='underline'>Spotify:</a>
+            </p>
       <div className="inline-flex flex-col sm:flex-row w-full max-w-full truncate">
-        {data?.songUrl ? (
-          <a
-            className="capsize text-gray-800 dark:text-gray-200 font-medium  max-w-max truncate"
-            href={data.songUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {data.title}
-          </a>
-        ) : (
-          <p className="capsize text-gray-800 dark:text-gray-200 font-medium">
-            Not Playing
+         
+            <a
+              className="capsize text-gray-800 dark:text-gray-200 font-medium  max-w-max truncate"
+              href={data?.songUrl ?? history?.songUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {data?.title ?? history?.title}
+            </a>
+            
+          <span className="capsize mx-2 text-gray-500 dark:text-gray-300 hidden sm:block">
+            {' – '}
+          </span>
+          <p className="capsize text-gray-500 dark:text-gray-300 max-w-max truncate">
+            {data?.artist ?? history?.artist}
           </p>
-        )}
-        <span className="capsize mx-2 text-gray-500 dark:text-gray-300 hidden sm:block">
-          {' – '}
-        </span>
-        <p className="capsize text-gray-500 dark:text-gray-300 max-w-max truncate">
-          {data?.artist ?? 'Spotify'}
-        </p>
+        </div>
       </div>
     </div>
   );
 }
+
+function LastPlayed() {
+  const { data } = useSWR<LastPlayedSong>('/api/last-played', fetcher);
+  return data;
+};
