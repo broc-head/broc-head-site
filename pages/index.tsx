@@ -4,7 +4,6 @@ import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../lib/date';
 import { GetStaticProps } from 'next';
-import Footer from '../components/Footer';
 
 
 const Index = ({ allPostsData }: {
