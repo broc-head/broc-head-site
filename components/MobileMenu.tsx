@@ -23,7 +23,7 @@ export default function MobileMenu() {
 
   return (
     <> 
-      <div className={`md:hidden`}> 
+      <div className={`md:hidden pr-4`}> 
         <button
           className={`flex items-center justify-center w-8 h-8 relative bg-gray-50 dark:bg-gray-600 ring-2 ring-black ring-inset dark:ring-gray-200 rounded-md shadow-[6px_6px_0_0_] shadow-seaweed hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]`}
           aria-label="Toggle mobile menu"
