@@ -50,22 +50,22 @@ const Container = ({ children, ...customMeta }: Props) => {
         </Head>
         <div className='px-8'>
         <div className='flex flex-col justify-center '>
-          <nav className='flex flex-row items-center justify-between w-full relative max-w-2xl border-gray-200 dark:border-gray-700 mx-auto py-10 text-gray-900 bg-gray-50 dark:bg-gray-900 bg-opacity-60 dark:text-gray-100'>
+          <nav className='flex flex-row flex-grow items-center justify-between w-full relative max-w-2xl border-gray-200 dark:border-gray-700 mx-auto py-10 text-gray-900 bg-gray-50 dark:bg-gray-900 bg-opacity-60 dark:text-gray-100'>
             
-              <div className='flex'>
-              <NavItem href="/" text="ericjw.dev" />
+              <NavItem href="/" text='← Home' />
               
-              <div className="ml-8 hidden md:inline-block space-x-3">
+              
+          
+            
+            <div className='flex items-center justify-between space-x-7'>
+              <div className="hidden md:inline-block space-x-3">
                 
                 <NavItem href="/about" text="About" />
                 <NavItem href="/works" text="Works" />
                 <NavItem href="/blog" text="Blog" />
                 <NavItem href="/contact" text="Contact" />
-              </div>
-            </div>
-          
-            
-            <div className='flex items-center justify-between space-x-7'>  
+             
+            </div>  
               <button
                 className='w-8 h-8 flex items-center justify-center rounded-md ring-2 ring-inset ring-black dark:ring-gray-100 bg-yellow dark:bg-space shadow-[6px_6px_0_0_] shadow-sunray dark:shadow-purple hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] text-gray-900 dark:text-gray-100'
                 aria-label='dark mode toggle'
@@ -134,10 +134,15 @@ function NavItem({ href, text }) {
           isActive
             ? 'font-semibold text-gray-800 dark:text-gray-200 bg-orange-100 dark:bg-orange-900'
             : 'font-normal text-gray-600 dark:text-gray-400'}
-          hover:bg-orange-200 dark:hover:bg-orange-800 transition-all px-1`
+          hover:bg-orange-200 dark:hover:bg-orange-800 transition-all`
         }
       >
-        <span className="capsize">{text}</span>
+        <span>
+          {isActive && text === '← Home' 
+            ? 'ericjw.dev'
+            : text
+          }
+        </span>
       </a>
     </Link>
   );
