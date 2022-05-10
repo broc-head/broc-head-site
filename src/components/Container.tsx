@@ -17,7 +17,7 @@ type Props = {
 const Container = ({ children, ...customMeta }: Props) => {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
-  useEffect(() => setMounted(true), [])
+  useEffect(() => setMounted(true), []);
   const meta = {
     title: 'Eric Whitehead - Developer, Writer, Designer.',
     description: 'Front-end developer, blogger, food enthusiast, artist.',
@@ -27,7 +27,7 @@ const Container = ({ children, ...customMeta }: Props) => {
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-900">
+    <div className="max-w-2xl mx-auto bg-gray-50 dark:bg-gray-900">
         <Head>
             <title>{meta.title}</title>
             <meta name="robots" content="follow, index" />
@@ -48,24 +48,19 @@ const Container = ({ children, ...customMeta }: Props) => {
               <meta property="article:published_time" content={meta.date} />
             )}
         </Head>
-        <div className='px-8'>
-        <div className='flex flex-col justify-center '>
-          <nav className='flex flex-row flex-grow items-center justify-between w-full relative max-w-2xl border-gray-200 dark:border-gray-700 mx-auto py-10 text-gray-900 bg-gray-50 dark:bg-gray-900 bg-opacity-60 dark:text-gray-100'>
-            
-              <NavItem href="/" text='← Home' />
-              
-              
-          
-            
+        <div className='-top-4 h-24 sticky bg-gray-50/30 dark:bg-gray-900/30 backdrop-blur-md'>
+        <div className='z-100 flex sticky top-0 h-20 px-8 items-center'>
+          <nav className='flex flex-row items-center justify-between w-full  text-gray-900  dark:text-gray-100'>
+            <div className='-ml-1'>
+              <NavItem href="/" text='Home ←' />
+            </div>
             <div className='flex items-center justify-between space-x-7'>
               <div className="hidden md:inline-block space-x-3">
-                
                 <NavItem href="/about" text="About" />
                 <NavItem href="/works" text="Works" />
                 <NavItem href="/blog" text="Blog" />
                 <NavItem href="/contact" text="Contact" />
-             
-            </div>  
+              </div>  
               <button
                 className='w-8 h-8 flex items-center justify-center rounded-md ring-2 ring-inset ring-black dark:ring-gray-100 bg-yellow dark:bg-space shadow-[6px_6px_0_0_] shadow-sunray dark:shadow-purple hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] text-gray-900 dark:text-gray-100'
                 aria-label='dark mode toggle'
@@ -100,24 +95,18 @@ const Container = ({ children, ...customMeta }: Props) => {
                   </svg>
                 )}
               </button>
-              
               <MobileMenu />
-              
             </div>
-            
-          </nav>
-         
+          </nav>    
+        </div>   
+        </div>       
+        <div className='px-8 pt-2 flex flex-col justify-center'>
+          <main className="mb-auto">
+            {children}
+            <Footer />
+          </main>
         </div>
-                      
-        </div>
-
-        <main className="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-900 mb-auto">
-          
-          {children}
-          <Footer />
-        </main>
     </div>
-    
   )
 };
 
@@ -134,11 +123,11 @@ function NavItem({ href, text }) {
           isActive
             ? 'text-gray-800 dark:text-gray-200 bg-orange-200 dark:bg-orange-900'
             : 'text-gray-700 dark:text-gray-300'}
-          p-2 hover:bg-orange-300 dark:hover:bg-orange-600 transition-all`
+          p-1 hover:bg-orange-300 dark:hover:bg-orange-600 transition-all`
         }
       >
         <span>
-          {isActive && text === '← Home' 
+          {isActive && text === 'Home ←' 
             ? 'ericjw.dev'
             : text
           }

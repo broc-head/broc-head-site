@@ -36,34 +36,34 @@ export default function MobileMenu() {
           )}
         </button>
         
-        <nav className={`absolute z-50 -left-12 top-24 bottom-0 pb-20 w-screen h-[92vh] bg-gray-50 dark:bg-gray-900 overflow-y-auto transform ${active? "-translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out`}>
+        <nav className={`absolute z-50 -left-4 top-0 bottom-0 mt-16 pb-20 w-screen h-[96vh] bg-gray-50 dark:bg-gray-900 overflow-y-auto transform ${active? "-translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out`}>
           <ul className='min-h-full pl-12 pr-6 py-8 space-y-8'>
             <li
               className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold "
             >
               <Link href="/about">
-                <a className="flex w-auto px-2 py-4 hover:bg-orange-200 dark:hover:bg-orange-800">About</a>
+                <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">About</a>
               </Link>
             </li>
             <li
               className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
             >
               <Link href="/works">
-                <a className="flex w-auto px-2 py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Works</a>
+                <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Works</a>
               </Link>
             </li>
             <li
               className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
             >
               <Link href="/blog">
-                <a className="flex w-auto px-2 py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Blog</a>
+                <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Blog</a>
               </Link>
             </li>
             <li
               className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
             >
               <Link href="/contact">
-                <a className="flex w-auto px-2 py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Contact</a>
+                <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Contact</a>
               </Link>
             </li>
           </ul>

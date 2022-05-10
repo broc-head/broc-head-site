@@ -19,7 +19,7 @@ const Index = ({ allPostsData }: {
         <Head>
           <title>{siteTitle}</title>
         </Head>
-        <div className='flex flex-col items-start max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pb-16"'>
+        <div className='flex flex-col items-start border-gray-200 dark:border-gray-700 mx-auto pb-16"'>
           <section className='mb-8'>
             <div className='text-6xl mb-4 md:text-8xl font-bold underline'>
               <h1 className='mb-4'>
