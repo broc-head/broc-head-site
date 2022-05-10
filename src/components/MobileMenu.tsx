@@ -5,7 +5,13 @@ export default function MobileMenu() {
   const [active, setActive] = useState(false);
 
   function toggleMenu() {
-    setActive(!active);
+    if (active) {
+      setActive(false);
+      document.body.style.overflow = '';
+    } else {
+      setActive(true);
+      document.body.style.overflow = 'hidden';
+    }
   }
 
   useEffect(() => {
@@ -31,45 +37,36 @@ export default function MobileMenu() {
         </button>
         
         <nav className={`absolute z-50 -left-12 top-20 bottom-0 pb-20 w-screen h-[92vh] bg-gray-50 dark:bg-gray-900 overflow-y-auto transform ${active? "-translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out`}>
-          <div className='flex flex-col'>
-            <ul className='min-h-full px-20 py-8 space-y-8 items-center '>
-              <li
-                className="leading-8 border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
-              >
-                <Link href="/">
-                  <a className='flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800' onClick={() => setTimeout(() => {toggleMenu}, 100)}>Home</a>
-                </Link>
-              </li>
-              <li
-                className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold "
-              >
-                <Link href="/about">
-                  <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">About</a>
-                </Link>
-              </li>
-              <li
-                className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
-              >
-                <Link href="/works">
-                  <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Works</a>
-                </Link>
-              </li>
-              <li
-                className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
-              >
-                <Link href="/blog">
-                  <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Blog</a>
-                </Link>
-              </li>
-              <li
-                className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
-              >
-                <Link href="/contact">
-                  <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Contact</a>
-                </Link>
-              </li>
-            </ul>
-        </div>
+          <ul className='min-h-full pl-12 pr-6 py-8 space-y-8'>
+            <li
+              className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold "
+            >
+              <Link href="/about">
+                <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">About</a>
+              </Link>
+            </li>
+            <li
+              className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
+            >
+              <Link href="/works">
+                <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Works</a>
+              </Link>
+            </li>
+            <li
+              className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
+            >
+              <Link href="/blog">
+                <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Blog</a>
+              </Link>
+            </li>
+            <li
+              className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold"
+            >
+              <Link href="/contact">
+                <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Contact</a>
+              </Link>
+            </li>
+          </ul>
         </nav>
       </div>
     </>
