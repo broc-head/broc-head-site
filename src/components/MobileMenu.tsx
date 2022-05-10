@@ -36,7 +36,7 @@ export default function MobileMenu() {
           )}
         </button>
         
-        <nav className={`absolute z-50 -left-4 top-0 bottom-0 mt-16 pb-20 w-screen h-[96vh] bg-gray-50 dark:bg-gray-900 overflow-y-auto transform ${active? "-translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out`}>
+        <nav className={`absolute z-50 -left-4 top-0 bottom-0 mt-20 pt-12 pb-20 w-screen h-[96vh] backdrop-blur-md bg-gray-50/40 dark:bg-gray-900/60 overflow-y-auto transform ${active? "-translate-x-0" : "-translate-x-full"} transition-transform duration-250 ease-in-out`}>
           <ul className='min-h-full pl-12 pr-6 py-8 space-y-8'>
             <li
               className="border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold "

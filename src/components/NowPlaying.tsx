@@ -116,7 +116,7 @@ export default function NowPlaying() {
             'Listening'
           ) : (
             'Recently played'
-          )} on <a href='https://www.spotify.com' className='underline decoration-[#1ED760] '>Spotify:</a>
+          )} on <a href='https://www.spotify.com' className='underline'>Spotify:</a>
         </p>
         {data?.isPlaying || history?.hasPlayed ? (
           '..probably Justice..'

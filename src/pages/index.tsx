@@ -22,16 +22,16 @@ const Index = ({ allPostsData }: {
         <div className='flex flex-col items-start border-gray-200 dark:border-gray-700 mx-auto pb-16"'>
           <section className='mb-8'>
             <div className='text-6xl mb-4 md:text-8xl font-bold underline'>
-              <h1 className='mb-4'>
+              <h1 className='mb-18'>
                 Eric Whitehead
               </h1>
             </div>
             
-            <p>Hi, I'm Eric, currently a grocer, looking to join a web development team, for what would be my first job in the dev space.</p>
+            <p className='text-sans'>Hi, I'm Eric, currently a grocer, looking to join a web development team, for what would be my first job in the dev space.</p>
             
           </section>
 
-          <section className=''>
+          <section className='text-sans'>
             <h2 className='text-lg'>Blog Posts</h2>
             <ul className=''>
               {allPostsData.map(({ id, date, title }) => (
