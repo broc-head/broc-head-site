@@ -120,7 +120,11 @@ export default function NowPlaying() {
                   'Recently played'
               )} on <a href='https://www.spotify.com' className='underline'>Spotify:</a>
             </p>
-      <div className="inline-flex flex-row flex-wrap w-full max-w-full truncate">
+
+      {data?.isPlaying || history?.hasPlayed ? (
+        'probably J'
+        ) : (
+          <div className="inline-flex flex-row flex-wrap w-full max-w-full truncate">
          
             <a
               className="text-gray-800 dark:text-gray-200 font-medium max-w-max truncate"
@@ -135,9 +139,10 @@ export default function NowPlaying() {
             {' – '}
           </span>
           <p className="max-w-max truncate">
-            {data?.artist ?? history?.artist}
+            {data?.artist || history?.artist }
           </p>
         </div>
+        )}      
       </div>
     </div>
   );

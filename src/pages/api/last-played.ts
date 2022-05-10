@@ -6,8 +6,15 @@ export default async function handler(
     res: NextApiResponse
 ) {
     const response = await getLastPlayed();
+    if (response.status === 204 || response.status > 400) {
+        return res.status(200).json({ hasPlayed: false });
+    }
     const { items } = await response.json();
     const song = items[0].track;
+    if (song === null) {
+        return res.status(200).json({ hasPlayed: false });
+    }
+    const hasPlayed = true;
     const title = song.name;
     const artist = song.artists.map((_artist) => _artist.name).join(', ');
     const album = song.album.name;
@@ -20,7 +27,7 @@ export default async function handler(
         'public, s-maxage=86400, stale-while-revalidate=43200'
     );
 
-    return res.status(200).json({ 
+    return res.status(200).json({
         title,
         artist,
         album,

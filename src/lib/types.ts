@@ -14,6 +14,7 @@ export type NowPlayingSong = {
 };
 
 export type LastPlayedSong = {
+  hasPlayed: boolean;
   songUrl: string;
   title: string;
   artist: string;

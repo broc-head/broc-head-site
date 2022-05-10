@@ -50,19 +50,19 @@ const Container = ({ children, ...customMeta }: Props) => {
         </Head>
         <div className='px-8'>
         <div className='flex flex-col justify-center '>
-          <nav className='flex items-center justify-between w-full relative max-w-2xl border-gray-200 dark:border-gray-700 mx-auto py-10 text-gray-900 bg-gray-50 dark:bg-gray-900 bg-opacity-60 dark:text-gray-100'>
-            <div className=''>
-            <div className=" space-x-3">
-              <NavItem href="/" text="Home" />
-              <NavItem href="/about" text="About" />
-              <NavItem href="/works" text="Works" />
-              <NavItem href="/blog" text="Blog" />
-              <NavItem href="/contact" text="Contact" />
+          <nav className='flex flex-row items-center justify-between w-full relative max-w-2xl border-gray-200 dark:border-gray-700 mx-auto py-10 text-gray-900 bg-gray-50 dark:bg-gray-900 bg-opacity-60 dark:text-gray-100'>
+            
+              <div className='flex'>
+              <NavItem href="/" text="ericjw.dev" />
+              
+              <div className="ml-8 hidden md:inline-block space-x-3">
+                
+                <NavItem href="/about" text="About" />
+                <NavItem href="/works" text="Works" />
+                <NavItem href="/blog" text="Blog" />
+                <NavItem href="/contact" text="Contact" />
+              </div>
             </div>
-  <div className='md:absolute md:translate-y-10'>
-        <h1 className='text-lg pt-1'>ericjw.dev</h1>
-        </div>
-        </div>
           
             
             <div className='flex items-center justify-between space-x-7'>  
@@ -134,7 +134,7 @@ function NavItem({ href, text }) {
           isActive
             ? 'font-semibold text-gray-800 dark:text-gray-200 bg-orange-100 dark:bg-orange-900'
             : 'font-normal text-gray-600 dark:text-gray-400'}
-          hidden md:inline-block hover:bg-orange-200 dark:hover:bg-orange-800 transition-all px-1`
+          hover:bg-orange-200 dark:hover:bg-orange-800 transition-all px-1`
         }
       >
         <span className="capsize">{text}</span>

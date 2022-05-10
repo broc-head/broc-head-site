@@ -5,14 +5,7 @@ export default function MobileMenu() {
   const [active, setActive] = useState(false);
 
   function toggleMenu() {
-    if (!active) {
-      setActive(!active);
-      document.body.style.overflow = 'hidden';
-      
-    } else {
-      setActive(!active);
-      document.body.style.overflow = '';
-    }
+    setActive(!active);
   }
 
   useEffect(() => {
