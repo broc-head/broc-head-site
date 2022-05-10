@@ -5,7 +5,7 @@ import { animate } from 'motion';
 import fetcher from '../lib/fetcher';
 import { NowPlayingSong, LastPlayedSong } from '../lib/types';
 
-function AnimatedBars() {
+function EarBuds() {
   useEffect(() => {
     animate(
       '#left',
@@ -97,10 +97,10 @@ export default function NowPlaying() {
   const history = LastPlayed();
 
   return (
-    <div className="flex flex-row-reverse sm:flex-row items-center mt-8 space-x-0 sm:space-x-2 text-xs w-full text-gray-700 dark:text-gray-400">
+    <div className="flex flex-row-reverse sm:flex-row items-center mt-8 space-x-0 sm:space-x-2 text-xs w-full text-gray-600 dark:text-gray-400">
       <div className='pt-4 px-1'>
         {data?.songUrl ? (
-          <AnimatedBars />
+          <EarBuds />
         ) : (
           <svg className="h-4 w-4 ml-auto mt-[-2px]" viewBox="0 0 168 168">
             <path
@@ -116,14 +116,14 @@ export default function NowPlaying() {
             'Listening'
           ) : (
             'Recently played'
-          )} on <a href='https://www.spotify.com' className='underline'>Spotify:</a>
+          )} on <a href='https://www.spotify.com' className='underline decoration-[#1ED760] '>Spotify:</a>
         </p>
         {data?.isPlaying || history?.hasPlayed ? (
           '..probably Justice..'
         ) : (
           <div className="inline-flex flex-row flex-wrap w-full max-w-full truncate">
             <a
-              className="text-gray-800 dark:text-gray-200 font-medium max-w-max truncate"
+              className="text-gray-900 dark:text-gray-200 font-medium max-w-max truncate"
               href={data?.songUrl ?? history?.songUrl}
               target="_blank"
               rel="noopener noreferrer"

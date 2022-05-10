@@ -132,9 +132,9 @@ function NavItem({ href, text }) {
       <a
         className={`${
           isActive
-            ? 'font-semibold text-gray-800 dark:text-gray-200 bg-orange-100 dark:bg-orange-900'
-            : 'font-normal text-gray-600 dark:text-gray-400'}
-          hover:bg-orange-200 dark:hover:bg-orange-800 transition-all`
+            ? 'text-gray-800 dark:text-gray-200 bg-orange-200 dark:bg-orange-900'
+            : 'text-gray-700 dark:text-gray-300'}
+          p-2 hover:bg-orange-300 dark:hover:bg-orange-600 transition-all`
         }
       >
         <span>
