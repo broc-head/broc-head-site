@@ -14,27 +14,18 @@ const ExternalLink = ({ href, children }) => (
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col justify-between items-start max-w-2xl mx-auto w-full">
-      <hr className="w-full border-1 border-gray-300 dark:border-gray-700 mb-10" />
-      
-      <div className="w-full max-w-2xl grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <div className="flex flex-col space-y-6">
-          <Link href="/">
-            <a className="text-gray-700 dark:text-gray-400 hover:text-gray-600 transition">Home</a>
-          </Link>
-          <Link href="/about">
-            <a className="text-gray-700 dark:text-gray-400 hover:text-gray-600 transition">
-              About
-            </a>
-          </Link>
+    <footer className="flex flex-col max-w-2xl mx-auto w-full">
+      <hr className="w-full border-1 border-gray-300 dark:border-gray-700 mt-20 mb-10" />
+      <div className='flex w-full text-sm flex-col space-y-2'>
+        <div className=''>
+          <p>© 2022 Eric Whitehead</p>
         </div>
-        <div className="flex flex-col space-y-6">
-          <ExternalLink href="https://twitter.com/er73c">Twitter</ExternalLink>
+        <div className='justify-end'>
           <ExternalLink href="https://github.com/eric-jw">GitHub</ExternalLink>
         </div>
       </div>
       <div className='mt-5 mb-2 w-full'>
-      <NowPlaying />
+        <NowPlaying />
       </div>
     </footer>
   );

@@ -6,9 +6,7 @@ import Link from 'next/link';
 import MobileMenu from './MobileMenu';
 import Footer from './Footer';
 
-
-
-export const siteTitle = 'My Next.js Blog'
+export const siteTitle = 'Home - ericjw'
 
 type Props = {
   children?: React.ReactNode
@@ -56,10 +54,10 @@ const Container = ({ children, ...customMeta }: Props) => {
               </div>
               <div className='pt-2 flex items-center justify-between space-x-7'>
                 <div className="hidden md:inline-block space-x-3">
-                  <NavItem href="/about" text="About" />
+                  
                   <NavItem href="/works" text="Works" />
                   <NavItem href="/blog" text="Blog" />
-                  <NavItem href="/contact" text="Contact" />
+                  <NavItem href="/about" text="About" />
                 </div>  
                 <button
                   className='w-8 h-8 flex items-center justify-center rounded-md ring-2 ring-inset ring-black dark:ring-gray-100 bg-yellow dark:bg-space shadow-[6px_6px_0_0_] shadow-sunray dark:shadow-purple hover:shadow-none dark:hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] text-gray-900 dark:text-gray-100'

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Container from '../components/Container';
+import TopTracks from '../components/TopTracks';
 
 export default function About() {
   return (
@@ -10,7 +11,8 @@ export default function About() {
         </h1>
         <div className="flex flex-col mb-8 leading-6">
           <p>
-            Here are some things I've built.
+            As a temporary placeholder, here are my current top tracks on Spotify:
+            <TopTracks />
           </p>
         </div>
       </div>

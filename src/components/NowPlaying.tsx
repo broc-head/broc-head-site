@@ -41,7 +41,7 @@ function EarBuds() {
   }, []);
 
   return (
-    <div className="w-auto flex opacity-90 overflow-hidden">
+    <div className="z-0 w-auto h-auto flex opacity-90 overflow-hidden hidden:blur-lg">
       <span
         id="left"
         className="flex"
