@@ -23,7 +23,7 @@ const Index = ({ allPostsData }: {
             <h2 className='text-lg font-bold'>All Posts</h2>
             <ul className='mt-2 w-full'>
               {allPostsData.map(({ id, date, title }) => (
-                <li className='mb-5 border-2 border-solid border-red-500 rounded-md -px-6 py-4 sm:w-full md:' key={id}>
+                <li className='mb-5 rounded-md w-full' key={id}>
                   <Link href={'/blog/'+id}>
                     <a>{title}</a>
                   </Link>

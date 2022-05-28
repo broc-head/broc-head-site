@@ -35,7 +35,7 @@ const Index = ({ allPostsData }: {
             <h2 className='text-lg font-bold'>Recent Posts</h2>
             <ul className='mt-2 w-full'>
               {allPostsData.map(({ id, date, title }) => (
-                <li className='mb-5 border-2 border-solid border-red-500 rounded-md -px-6 py-4 sm:w-full md:' key={id}>
+                <li className='mb-5 border-2 border-solid border-red-500 rounded-md -px-6 p-4 ' key={id}>
                   <Link href={'/blog/'+id}>
                     <a>{title}</a>
                   </Link>
@@ -51,7 +51,7 @@ const Index = ({ allPostsData }: {
           <section className='text-sans mt-8'>
             <h2 className='text-lg font-bold'>Projects</h2>
             <ul className='mt-2'>
-              stuff
+              Stuff
             </ul>
 
           </section>
