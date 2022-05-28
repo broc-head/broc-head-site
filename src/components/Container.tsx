@@ -21,6 +21,7 @@ const Container = ({ children, ...customMeta }: Props) => {
     description: 'Front-end developer, blogger, food enthusiast, artist.',
     image: '', //need banner
     type: 'website',
+    date: '',
     ...customMeta
   };
 
