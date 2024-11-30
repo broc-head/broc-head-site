@@ -39,23 +39,23 @@ export default function MobileMenu() {
         <nav className={`absolute z-50 -left-4 top-0 bottom-0 mt-20 pt-12 pb-20 w-screen h-[96vh] backdrop-blur-lg backdrop-filter bg-gray-50/40 dark:bg-gray-900/60 overflow-hidden transform ${active? "-translate-x-0" : "-translate-x-full"} transition-transform duration-250 ease-in-out`}>
           <ul className='list-none h-full pl-12 pr-6 py-8 space-y-8'>
             <li className='border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold'>
-              <Link href="/resume">
-                <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Resume</a>
+              <Link href="/resume" className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">
+                Resume
               </Link>
             </li>
             <li className='border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold'>
-              <Link href="/works">
-                <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Works</a>
+              <Link href="/works" className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">
+                Works
               </Link>
             </li>
             <li className='border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold'>
-              <Link href="/blog">
-                <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">Blog</a>
+              <Link href="/blog" className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">
+                Blog
               </Link>
             </li>
             <li className='border-b border-gray-400 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-lg font-semibold'>
-              <Link href="/about">
-                <a className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">About</a>
+              <Link href="/about" className="flex w-auto py-4 hover:bg-orange-200 dark:hover:bg-orange-800">
+                About
               </Link>
             </li>
           </ul>

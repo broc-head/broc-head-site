@@ -26,7 +26,7 @@ const Container = ({ children, ...customMeta }: Props) => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto bg-gray-50 dark:bg-gray-900">
+    <div className="max-w-screen-l mx-auto bg-gray-50 dark:bg-gray-900">
         <Head>
             <title>{meta.title}</title>
             <meta name="robots" content="follow, index" />
@@ -99,7 +99,7 @@ const Container = ({ children, ...customMeta }: Props) => {
             </nav>    
           </div>   
         </div>       
-        <div className='px-8 mt-8 flex flex-col justify-center'>
+        <div className='p-2 mt-8 flex flex-col justify-center'>
           <main className="text-sans mb-auto">
             {children}
             <Footer />
@@ -116,22 +116,19 @@ function NavItem({ href, text }) {
   const isActive = router.asPath === href;
 
   return (
-    <Link href={href}>
-      <a
-        className={`${
-          isActive
-            ? 'text-gray-800 dark:text-gray-200 bg-orange-200 dark:bg-orange-900'
-            : 'text-gray-700 dark:text-gray-300'}
-          p-1 hover:bg-orange-300 dark:hover:bg-orange-600 transition-all`
-        }
+    <Link href={href} className={`${
+        isActive
+          ? 'text-gray-800 dark:text-gray-200 bg-orange-200 dark:bg-orange-900'
+          : 'text-gray-700 dark:text-gray-300'}
+        p-1 hover:bg-orange-300 dark:hover:bg-orange-600 transition-all`
+      }
       >
-        <span>
-          {isActive && text === 'Home ←' 
-            ? 'ericjw.dev'
-            : text
-          }
-        </span>
-      </a>
+      <span>
+        {isActive && text === 'Home ←' 
+          ? 'ericjw.dev'
+          : text
+        }
+      </span>
     </Link>
   );
 }

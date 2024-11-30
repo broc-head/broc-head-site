@@ -37,7 +37,7 @@ const Index = ({ allPostsData }: {
               {allPostsData.map(({ id, date, title }) => (
                 <li className='mb-5 border-2 border-solid border-red-500 rounded-md -px-6 p-4 ' key={id}>
                   <Link href={'/blog/'+id}>
-                    <a>{title}</a>
+                    {title}
                   </Link>
                   <br />
                   <small className='color-gray'>
